@@ -1,9 +1,38 @@
 :root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
+  --surf-primary: #3A8DAD;
+  --surf-secondary: #F5E9DA;
+  --surf-accent: #2EC4B6;
+  --surf-sand: #F5E9DA;
+  --surf-dark: #133449;
+  --surf-wave-light: #E6FAFB;
+  --surf-card: #FAFAFA;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #3A8DAD 0%, #2EC4B6 30%, #F5E9DA 100%);
+  color: var(--surf-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.surf-card {
+  transition: box-shadow 0.13s, border 0.13s;
+}
+.surf-card:hover {
+  box-shadow: 0 9px 30px #2ec4b655;
+  border: 1.5px solid #2EC4B6;
+}
+
+::-webkit-scrollbar {
+  height: 11px;
+  width: 11px;
+  background: #2ec4b614;
+}
+::-webkit-scrollbar-thumb {
+  background: #3A8DAD51;
+  border-radius: 6px;
 }
 
 body {
