@@ -158,6 +158,26 @@ function SurfSyncApp() {
   // Filters
   const [filter, setFilter] = useState({ spot: '', board: '', mood: '' });
 
+  // Ensure that only one of: form, dashboard, or detail view, or home is ever active
+  function goHome() {
+    setShowDashboard(false);
+    setShowForm(false);
+    setSelectedSessionId(null);
+    setEditId(null);
+  }
+  function goDashboard() {
+    setShowDashboard(true);
+    setShowForm(false);
+    setSelectedSessionId(null);
+    setEditId(null);
+  }
+  function goLogForm() {
+    setShowForm(true);
+    setEditId(null);
+    setShowDashboard(false);
+    setSelectedSessionId(null);
+  }
+
   // --- Reminder: notify if no session logged today
   useEffect(() => {
     const today = new Date().toISOString().slice(0, 10);
@@ -180,6 +200,7 @@ function SurfSyncApp() {
     setShowForm(false);
     setEditId(null);
     setSelectedSessionId(null);
+    setShowDashboard(false); // Always return to Home after adding
   }
 
   function handleEditSession(updatedSession) {
@@ -196,6 +217,7 @@ function SurfSyncApp() {
     setSelectedSessionId(null);
     setShowForm(false);
     setEditId(null);
+    setShowDashboard(false); // Go home after delete
   }
 
   // --- Filter logic ---
@@ -229,21 +251,21 @@ function SurfSyncApp() {
           </div>
           <div style={{display:'flex', gap: '10px',alignItems:'center'}}>
             <button
-              onClick={()=>{setShowDashboard(false);setShowForm(false);setSelectedSessionId(null);setEditId(null);}}
+              onClick={goHome}
               className={`btn btn-futuristic ${showDashboard===false && !showForm && !selectedSessionId ? "active-nav" : ""}`}
               tabIndex={0}
               style={navBtnStyle(showDashboard===false && !showForm && !selectedSessionId)}>
               {icons.home} Home
             </button>
             <button
-              onClick={()=>setShowDashboard(true)}
+              onClick={goDashboard}
               className={`btn btn-futuristic ${showDashboard ? "active-nav" : ""}`}
               tabIndex={0}
               style={navBtnStyle(showDashboard)}>
               {icons.stats} Stats
             </button>
             <button
-              onClick={() => { setShowForm(true); setEditId(null); setShowDashboard(false); setSelectedSessionId(null); }}
+              onClick={goLogForm}
               className={`btn btn-futuristic ${showForm ? "active-nav" : ""}`}
               tabIndex={0}
               style={navBtnStyle(showForm)}>
