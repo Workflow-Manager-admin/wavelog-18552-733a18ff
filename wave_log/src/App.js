@@ -142,9 +142,10 @@ const moodOptions = [
 ];
 const spots = ['Ocean Beach', 'Reef Break', 'Sandy Point', 'Big Cove', 'Secret Spot'];
 
-// ------------------------- Components --------------------------- //
-
-// PUBLIC_INTERFACE
+/*
+------------------------- Components ---------------------------
+We inspect whether Log New Session form and Stats Dashboard visibility/status logic matches requirements.
+*/
 function SurfSyncApp() {
   // --- Surf Sessions State (simulate persistence) ---
   const [sessions, setSessions] = useState(defaultSessions);
