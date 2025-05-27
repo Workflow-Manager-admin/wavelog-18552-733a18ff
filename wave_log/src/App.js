@@ -251,14 +251,24 @@ function SurfSyncApp() {
           </div>
           <div style={{display:'flex', gap: '10px',alignItems:'center'}}>
             <button
-              onClick={goHome}
+              onClick={() => {
+                setShowDashboard(false);
+                setShowForm(false);
+                setEditId(null);
+                setSelectedSessionId(null);
+              }}
               className={`btn btn-futuristic ${showDashboard===false && !showForm && !selectedSessionId ? "active-nav" : ""}`}
               tabIndex={0}
               style={navBtnStyle(showDashboard===false && !showForm && !selectedSessionId)}>
               {icons.home} Home
             </button>
             <button
-              onClick={goDashboard}
+              onClick={() => {
+                setShowDashboard(true);
+                setShowForm(false);
+                setEditId(null);
+                setSelectedSessionId(null);
+              }}
               className={`btn btn-futuristic ${showDashboard ? "active-nav" : ""}`}
               tabIndex={0}
               style={navBtnStyle(showDashboard)}>
@@ -266,7 +276,6 @@ function SurfSyncApp() {
             </button>
             <button
               onClick={() => {
-                // Always ensure form view is not obstructed by edit or detail states
                 setShowForm(true);
                 setEditId(null);
                 setShowDashboard(false);
