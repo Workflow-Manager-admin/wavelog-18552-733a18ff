@@ -71,3 +71,11 @@ ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[
 Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
 
 webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
+ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 5:36-83
+Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
+
+webpack compiled with 1 error
