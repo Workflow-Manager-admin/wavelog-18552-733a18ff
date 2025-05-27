@@ -1,45 +1,29 @@
 :root {
-  --surf-primary: #3A8DAD;
-  --surf-secondary: #F5E9DA;
-  --surf-accent: #2EC4B6;
-  --surf-sand: #F5E9DA;
-  --surf-dark: #133449;
-  --surf-wave-light: #E6FAFB;
-  --surf-card: #FAFAFA;
+  --surf-primary: #38b6ff;
+  --surf-accent: #08e2ff;
+  --surf-secondary: #fafeff;
+  --surf-sand: #ffe7bc;
+  --surf-dark: #091e31;
+  --surf-card: #fafeff;
+  --surf-blueglass: rgba(56,182,255,0.22);
+  --surf-blueglass-strong: rgba(56,182,255,0.37);
+  --surf-trans: rgba(255,255,255,0.13);
+  --text-main: #f6faff;
+  --text-contrast: #1C2233;
+  --text-shadow: 0 2px 14px #17538a88;
+  --surf-button-glow: 0 0 8px #13f6ff99, 0 2px 24px #0be7ff41, 0 .5px 5px #95eef5a2;
+  --surf-shadow-heavy: 0 9px 44px rgba(56, 182, 255, 0.18), 0 2px 20px #5ee2e944;
+  --surf-shadow-card: 0 7px 27px rgba(96,251,253,.14), 0 3px 13px #38b6ff23;
 }
 
 body {
   margin: 0;
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  background: linear-gradient(to bottom, #3A8DAD 0%, #2EC4B6 30%, #F5E9DA 100%);
-  color: var(--surf-dark);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.surf-card {
-  transition: box-shadow 0.13s, border 0.13s;
-}
-.surf-card:hover {
-  box-shadow: 0 9px 30px #2ec4b655;
-  border: 1.5px solid #2EC4B6;
-}
-
-::-webkit-scrollbar {
-  height: 11px;
-  width: 11px;
-  background: #2ec4b614;
-}
-::-webkit-scrollbar-thumb {
-  background: #3A8DAD51;
-  border-radius: 6px;
-}
-
-body {
-  margin: 0;
-  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  background-color: var(--kavia-dark);
-  color: var(--text-color);
+  /* Futuristic animated ocean gradient */
+  background: linear-gradient(120deg, #10154e 0%, #1162ab 40%, #38b6ff 95%);
+  color: var(--text-main);
+  background-attachment: fixed;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -50,88 +34,244 @@ body {
   flex-direction: column;
 }
 
-.navbar {
-  background-color: var(--kavia-dark);
-  padding: 16px;
+/* Glassmorphic and Card Styling */
+.surf-card {
+  background: var(--surf-blueglass-strong);
+  border-radius: 2.1rem;
+  box-shadow: var(--surf-shadow-card);
+  border: 1.5px solid rgba(255,255,255,0.09);
+  backdrop-filter: blur(15px) saturate(1.3);
+  -webkit-backdrop-filter: blur(15px) saturate(1.3);
+  transition: box-shadow 0.22s, border 0.16s, background 0.28s;
+  color: var(--text-main);
+  /* For cool glass look */
+  overflow: hidden;
+  position: relative;
+}
+.surf-card:hover {
+  background: linear-gradient(110deg, rgba(56,182,255,0.30), rgba(10,225,255,0.26) 50%);
+  box-shadow: var(--surf-shadow-heavy);
+  border: 1.8px solid var(--surf-accent);
+}
+
+/* Futuristic frosted nav bar */
+.navbar, .navbar-futuristic {
+  background: linear-gradient(95deg, rgba(32,49,82,0.98) 70%, rgba(13,205,241,0.4) 110%);
+  box-shadow: 0 4px 24px 0 #22bffc1a, 0 1.7px 8px #0c79cc32;
+  color: var(--text-main);
+  border-bottom: 1.5px solid rgba(56,182,255,0.16) !important;
+  position: sticky; top: 0; z-index: 30;
+  backdrop-filter: blur(13px) saturate(1.12);
+}
+
+.logo, .logo-symbol {
+  font-size: 1.71rem;
+  font-weight: 900;
+  font-family: 'Orbitron','Inter',sans-serif;
+  letter-spacing: 2.7px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border-color);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  box-sizing: border-box;
-  z-index: 100;
-}
-
-.logo {
-  font-size: 1.25rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.logo-symbol {
-  color: var(--kavia-orange);
-}
-
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 24px;
-  width: 100%;
-  box-sizing: border-box;
+  /* Animated gradient text for logo */
+  background: linear-gradient(92deg, #08e2ff 52%, #38b6ff 98%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero {
-  padding-top: 120px;
-  padding-bottom: 64px;
+  padding-top: 95px;
+  padding-bottom: 55px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 28px;
+  background-image: url('/assets/bg-home.jpg'), linear-gradient(110deg, #10154e 0%, #38b6ff 95%);
+  background-size: cover;
+  background-blend-mode: overlay;
+  color: var(--text-main);
+  text-shadow: var(--text-shadow), 0 1px 0 #14527990;
 }
 
-.subtitle {
-  color: var(--kavia-orange);
-  font-weight: 500;
-  font-size: 1.1rem;
+/* Section backgrounds (with surfing/ocean) */
+.section-bg-home, .section-bg-log {
+  background-image: url('/assets/bg-home.jpg');
+  background-position: center 41%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  position: relative;
+}
+.section-bg-details {
+  background-image: url('/assets/bg-details.jpg');
+  background-position: center 48%;
+  background-size: cover;
+  background-blend-mode: lighten;
+}
+.section-bg-dashboard {
+  background-image: url('/assets/bg-dashboard.jpg');
+  background-position: center 45%;
+  background-size: cover;
 }
 
+.section-overlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(13px) brightness(1.17);
+  background: linear-gradient(120deg, rgba(10,41,80,0.77) 0%, rgba(56,182,255,0.20) 78%,rgba(8,226,255,0.11) 100%);
+  z-index: 1;
+}
+
+/* Futuristic text */
 .title {
-  font-size: 3.5rem;
-  font-weight: 600;
-  line-height: 1.2;
+  font-size: 3.2rem;
+  font-weight: 900;
+  font-family: 'Orbitron','Inter',sans-serif;
+  letter-spacing: 1.3px;
+  line-height: 1.17;
   margin: 0;
+  color: #43f3fc;
+  text-shadow: 0 3px 13px #0e5e997e,0 1px 10px #06c7ff35;
+}
+.subtitle {
+  color: #2ecfff;
+  font-weight: 500;
+  text-shadow: 0 2px 11px #0d69ac85;
+  font-size: 1.17rem;
 }
 
 .description {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin-bottom: 16px;
+  font-size: 1.11rem;
+  line-height: 1.6;
+  color: #fafeffde;
+  font-weight: 400;
+  max-width: 680px;
+  margin-bottom: 1.3rem;
+  text-shadow: var(--text-shadow);
 }
 
-.btn {
-  background-color: var(--kavia-orange);
-  color: white;
+/* Card/Panel custom (with smooth glass and backdrop) */
+.panel-glass, .glass {
+  background: var(--surf-blueglass);
+  border-radius: 2.7rem;
+  box-shadow: var(--surf-shadow-card);
+  border: 1.3px solid #13e0ff27;
+  padding: 2.1rem 2rem;
+  backdrop-filter: blur(13px) saturate(1.21);
+}
+
+/* Futuristic Inputs */
+input, select, textarea {
+  border-radius: 12px;
+  border: 1.5px solid #35bddf88;
+  padding: 0.62em 1em;
+  font-size: 1.07em;
+  font-family: inherit;
+  background: rgba(228,242,255,0.16);
+  color: #fafeff;
+  box-shadow: 0 1.7px 8px #08e2ff19;
+  outline: none;
+  transition: background 0.21s, border .17s, box-shadow .15s, color .13s;
+  margin-bottom: 0.33em;
+  font-weight:500;
+}
+input:focus, select:focus, textarea:focus {
+  border: 2.3px solid #38b6ffed;
+  background: rgba(214,243,250,0.28);
+  color: #2fe1ff;
+  box-shadow: 0 2px 14px #44ffff60, 0 1.5px 8px #38b6ff39;
+}
+
+/* Animated, glowy, glassmorphic buttons */
+.btn, .btn-futuristic {
+  background: linear-gradient(92deg, #03a0dc 44%, #08e2ff 99%);
+  color: #fff!important;
   border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: 500;
+  border-radius: 18px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+  font-size: 1.12rem;
+  padding: 13px 38px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  margin: 0 3px;
+  box-shadow: var(--surf-button-glow);
+  transition: background 0.18s, box-shadow .18s, transform .09s;
+  position: relative;
+  overflow: hidden;
 }
-
-.btn:hover {
-  background-color: #FF8B4D;
+.btn:hover, .btn-futuristic:active {
+  background: linear-gradient(77deg, #08e2ff 70%, #38b6ff 105%);
+  box-shadow: 0 0 20px #0be7ff99, 0 4px 30px #13f6ff4e;
+  transform: scale(1.025) translateY(-2px);
 }
-
 .btn-large {
-  padding: 12px 24px;
-  font-size: 1.1rem;
+  padding: 1em 2.6em;
+  font-size: 1.24rem;
+}
+
+/* Animated underline for interactive buttons */
+.btn-futuristic::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 21%;
+  bottom: 4px;
+  width: 63%;
+  height: 4px;
+  border-radius: 3px;
+  background: linear-gradient(110deg, #65fffe 0%, #00bcff 88%);
+  opacity: 0;
+  transform: scaleX(0.2);
+  transition: opacity 0.16s, transform 0.28s;
+}
+.btn-futuristic:hover::after{
+  opacity: .91;
+  transform: scaleX(1);
+}
+
+::-webkit-scrollbar {
+  height: 9px;
+  width: 9px;
+  background: #13e0ff19;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(120deg, #38b6ff85, #08e2ff80 84%);
+  border-radius: 7px;
+  border: 1px solid #13e0ff27;
+}
+
+/* Accessibility: High contrast text and focus ring */
+:focus-visible {
+  outline: 2.7px solid #08e2ffcc;
+  outline-offset: 1px;
+}
+
+a {
+  color: #32f1ff;
+  text-decoration: underline;
+  text-shadow: var(--text-shadow);
+}
+a:focus,a:hover {
+  color: #35bddf;
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid #27e0ff12;
+  margin: 2em 0;
+}
+
+@media (max-width: 650px) {
+  .hero, .panel-glass, .surf-card {
+    padding: 1.6rem 0.1rem!important;
+    border-radius: 1rem!important;
+  }
+  .title {
+    font-size: 2rem!important;
+  }
+}
+
+/* Icon/Futuristic icon coloring */
+svg {
+  filter: drop-shadow(0 1.5px 8px #13cfe231);
+  /* Futuristic blue/teal hues; style icons visually in App.js if needed */
 }
