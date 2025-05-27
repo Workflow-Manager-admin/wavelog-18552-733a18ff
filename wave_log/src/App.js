@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
+// Ensure SessionForm, SessionList, SessionDetail, StatsDashboard, and SessionFilterBar are always available
+// (For future debugging, if separated into files, these should be imported with:
+// import SessionForm from './SessionForm';
+// ... etc.)
+
 // --- ICONS (SVG-inline, theme colored) ---
 const icons = {
   wave: (
@@ -311,6 +316,10 @@ function SurfSyncApp() {
           position: 'relative',
           zIndex: 2
         }}>
+        {/* VISUAL DEBUGGING: show which state is active */}
+        <div style={{position:'absolute',top:2,right:10,fontSize:12,opacity:.3,zIndex:888}}>
+          <span>showForm: {String(showForm)} | showDashboard: {String(showDashboard)} | selectedSessionId: {String(selectedSessionId)} | editId: {String(editId)}</span>
+        </div>
         {/* Form: Add/Edit */}
         {showForm && !showDashboard && (
           <div className="section-bg-log" style={{borderRadius: '2.3rem', overflow:'hidden', position:'relative'}}>
