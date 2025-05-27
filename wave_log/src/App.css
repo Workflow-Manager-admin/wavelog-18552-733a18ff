@@ -94,21 +94,37 @@ body {
 
 /* Section backgrounds (with surfing/ocean) */
 .section-bg-home, .section-bg-log {
-  background-image: url('/assets/bg-home.jpg');
+  background-image:
+    linear-gradient(110deg, #36c7f0 0%, #10154e 100%),
+    url('/assets/bg-home.jpg');
   background-position: center 41%;
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
   position: relative;
 }
+.section-bg-log {
+  background-image:
+    linear-gradient(110deg, #24e1e7 0%, #091e31 90%),
+    url('/assets/bg-log.jpg');
+  background-position: center 41%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}
+
 .section-bg-details {
-  background-image: url('/assets/bg-details.jpg');
+  background-image:
+    linear-gradient(120deg, #38b6ff 0%, #091e31 85%),
+    url('/assets/bg-details.jpg');
   background-position: center 48%;
   background-size: cover;
   background-blend-mode: lighten;
 }
 .section-bg-dashboard {
-  background-image: url('/assets/bg-dashboard.jpg');
+  background-image:
+    linear-gradient(110deg, #38b6ff 0%, #1162ab 90%),
+    url('/assets/bg-dashboard.jpg');
   background-position: center 45%;
   background-size: cover;
 }
