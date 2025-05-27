@@ -176,12 +176,7 @@ function SurfSyncApp() {
     setSelectedSessionId(null);
     setEditId(null);
   }
-  function goLogForm() {
-    setShowForm(true);
-    setEditId(null);
-    setShowDashboard(false);
-    setSelectedSessionId(null);
-  }
+  // Removed goLogForm as its logic is now handled inline for better visibility and less indirection.
 
   // --- Reminder: notify if no session logged today
   useEffect(() => {
@@ -270,7 +265,13 @@ function SurfSyncApp() {
               {icons.stats} Stats
             </button>
             <button
-              onClick={goLogForm}
+              onClick={() => {
+                // Always ensure form view is not obstructed by edit or detail states
+                setShowForm(true);
+                setEditId(null);
+                setShowDashboard(false);
+                setSelectedSessionId(null);
+              }}
               className={`btn btn-futuristic ${showForm ? "active-nav" : ""}`}
               tabIndex={0}
               style={navBtnStyle(showForm)}>
