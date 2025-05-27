@@ -96,8 +96,10 @@ body {
 /* Section backgrounds (with surfing/ocean) */
 /* If you add the corresponding image files into public/assets/, uncomment the url() lines below! */
 .section-bg-home, .section-bg-log {
-  background-image:
-    linear-gradient(110deg, #36c7f0 0%, #10154e 100%);
+  /* background-image:
+    url('/assets/bg-home.jpg'),
+    linear-gradient(110deg, #36c7f0 0%, #10154e 100%); */
+  background-image: linear-gradient(110deg, #36c7f0 0%, #10154e 100%);
   background-position: center 41%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -105,8 +107,10 @@ body {
   position: relative;
 }
 .section-bg-log {
-  background-image:
-    linear-gradient(110deg, #24e1e7 0%, #091e31 90%);
+  /* background-image:
+    url('/assets/bg-log.jpg'),
+    linear-gradient(110deg, #24e1e7 0%, #091e31 90%); */
+  background-image: linear-gradient(110deg, #24e1e7 0%, #091e31 90%);
   background-position: center 41%;
   background-size: cover;
   background-repeat: no-repeat;
