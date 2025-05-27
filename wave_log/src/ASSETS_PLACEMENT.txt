@@ -1,0 +1,10 @@
+To enable the futuristic UI backgrounds, please ensure the following ocean/surfing images are placed in wave_log/public/assets/ (relative to your React project's public folder):
+
+- bg-home.jpg         (main/home section background, vibrant ocean, surf, or sunrise image)
+- bg-log.jpg          (new log/session form section, close-up surfing or wave image)
+- bg-details.jpg      (session details panel, stylized ocean/surfboard/underwater scene)
+- bg-dashboard.jpg    (dashboard stats section, dramatic surf or ocean/sky gradient image)
+
+Images may be JPEG or PNG, 1200px+ width preferred for clarity. The images should be visually oceanic, with good brightness and interesting wave or surfing content, and high enough contrast to work well with overlays and text.
+
+If you place images with these names, they will be automatically loaded (thanks to CSS backgrounds) in the relevant sections!

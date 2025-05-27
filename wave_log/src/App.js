@@ -215,27 +215,29 @@ function SurfSyncApp() {
 
   // --- Render ---
   return (
-    <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom, #3A8DAD 0%, #2EC4B6 30%, #F5E9DA 100%)', fontFamily: 'Inter, Arial, sans-serif' }}>
+    <div className="app section-bg-home" style={{ minHeight: '100vh', position: 'relative', fontFamily: 'Inter, Arial, sans-serif' }}>
+      {/* Overlay for glass effect and readability */}
+      <div className="section-overlay" />
+
       {/* Navbar Ocean Header */}
-      <nav style={{
-        background: 'linear-gradient(90deg, #3A8DAD 80%, #2EC4B6 100%)', 
-        color: '#fff', padding: '14px 0 14px 0', 
-        boxShadow: '0 3px 15px 0 rgba(42,120,162,0.10)', 
-        position: 'sticky', top: 0, zIndex: 20
-      }}>
+      <nav className="navbar navbar-futuristic" role="navigation" aria-label="main navigation">
         <div style={{maxWidth: 950, margin:'auto', display:'flex',alignItems:'center',justifyContent: 'space-between',padding:'0 18px'}}>
-          <div style={{display:'flex',alignItems:'center',fontWeight:700,fontSize: '1.5rem',letterSpacing:1}}>
+          <div className="logo" style={{display:'flex',alignItems:'center',fontWeight:700,fontSize: '1.5rem',letterSpacing:1,textShadow:'0 2px 6px #0895bbbc'}}>
             <span style={{marginRight:6,display:'inline-block',transform:'rotate(-10deg)'}}>{icons.wave}</span>
-            <span style={{color:'#F5E9DA'}}>Surf</span><span style={{color:'#FFD23F'}}>Sync</span>
+            <span style={{color:'#54dfff', textShadow:'0 1.5px 7px #159adccc'}}>Surf</span><span style={{color:'#ffd23f',textShadow:'0 1.2px 6px #d8b70e9c'}}>Sync</span>
           </div>
           <div style={{display:'flex', gap: '10px',alignItems:'center'}}>
             <button
               onClick={()=>{setShowDashboard(false);setShowForm(false);setSelectedSessionId(null);setEditId(null);}}
+              className={`btn btn-futuristic ${showDashboard===false && !showForm && !selectedSessionId ? "active-nav" : ""}`}
+              tabIndex={0}
               style={navBtnStyle(showDashboard===false && !showForm && !selectedSessionId)}>
               {icons.home} Home
             </button>
             <button
               onClick={()=>setShowDashboard(v=>!v)}
+              className={`btn btn-futuristic ${showDashboard ? "active-nav" : ""}`}
+              tabIndex={0}
               style={navBtnStyle(showDashboard)}>
               {icons.stats} Stats
             </button>
@@ -245,66 +247,92 @@ function SurfSyncApp() {
 
       {/* Notification/Reminder */}
       {reminderShown && (
-        <div style={{
-          background: '#FFD23F',
-          color: '#3A8DAD',
-          padding: '10px 0', fontWeight: 500, textAlign: 'center',
-          display:'flex',justifyContent:'center',alignItems:'center', gap:6, fontSize: '1.09rem'
-        }}>
+        <div
+          style={{
+            background: 'rgba(41,238,254,0.94)',
+            color: '#151a27',
+            padding: '10px 0',
+            fontWeight: 600,
+            textAlign: 'center',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 10,
+            fontSize: '1.09rem',
+            position: 'relative',
+            zIndex: 18,
+            boxShadow: '0 4px 20px #09cbe020'
+          }}>
           <span>{icons.reminder}</span>
-          Remember to log your surf session if you paddled out today!
+          <span style={{textShadow:'0 2px 11px #92f4ffad'}}>Remember to log your surf session if you paddled out today!</span>
           <button style={{
-            background:'transparent',border:'none',fontSize:18,marginLeft:20, color:'#3A8DAD', cursor:'pointer'
-          }} aria-label="Dismiss reminder" onClick={()=>setReminderShown(false)}>&#10005;</button>
+            background: 'none', border: 'none', fontSize: 18, marginLeft: 18, color: '#0889a6', cursor: 'pointer',
+            borderRadius:8, padding: '0 6px'
+          }} aria-label="Dismiss reminder" onClick={()=>setReminderShown(false)}>&#10005;
+          </button>
         </div>
       )}
 
-      <main style={{maxWidth:950,margin:'32px auto 0 auto',minHeight:'56vh',padding:'0 12px 60px 12px'}}>
+      <main style={{
+          maxWidth:950,
+          margin:'42px auto 0 auto',
+          minHeight:'56vh',
+          padding:'0 12px 60px 12px',
+          position: 'relative',
+          zIndex: 2
+        }}>
         {/* Form: Add/Edit */}
         {showForm && !showDashboard && (
-          <SessionForm
-            session={editId ? sessions.find(s=>s.id===editId) : undefined}
-            onSave={editId ? handleEditSession : handleAddSession}
-            onCancel={() => { setShowForm(false); setEditId(null); }}
-          />
+          <div className="section-bg-log" style={{borderRadius: '2.3rem', overflow:'hidden', position:'relative'}}>
+            <div className="section-overlay" />
+            <SessionForm
+              session={editId ? sessions.find(s=>s.id===editId) : undefined}
+              onSave={editId ? handleEditSession : handleAddSession}
+              onCancel={() => { setShowForm(false); setEditId(null); }}
+            />
+          </div>
         )}
 
         {/* Dashboard */}
         {showDashboard && (
-          <StatsDashboard allSessions={sessions}/>
+          <div className="section-bg-dashboard" style={{borderRadius: '2.3rem', overflow:'hidden', position:'relative'}}>
+            <div className="section-overlay" />
+            <StatsDashboard allSessions={sessions}/>
+          </div>
         )}
 
         {/* Session Detail */}
         {selectedSessionId && !showForm && !showDashboard &&
-          <SessionDetail
-            session={sessions.find(s=>s.id===selectedSessionId)}
-            onBack={()=>setSelectedSessionId(null)}
-            onEdit={()=>{setEditId(selectedSessionId); setShowForm(true);}}
-            onDelete={()=>handleDeleteSession(selectedSessionId)}
-          />
+          <div className="section-bg-details" style={{borderRadius: '2.3rem', overflow:'hidden', position:'relative'}}>
+            <div className="section-overlay" />
+            <SessionDetail
+              session={sessions.find(s=>s.id===selectedSessionId)}
+              onBack={()=>setSelectedSessionId(null)}
+              onEdit={()=>{setEditId(selectedSessionId); setShowForm(true);}}
+              onDelete={()=>handleDeleteSession(selectedSessionId)}
+            />
+          </div>
         }
 
         {/* Home/Main List */}
         {!showForm && !selectedSessionId && !showDashboard && (
           <div>
             {/* "Log New Session" button */}
-            <div style={{textAlign:'center',marginTop:26,marginBottom:27}}>
+            <div style={{textAlign:'center',marginTop:30,marginBottom:33}}>
               <button
                 onClick={() => { setShowForm(true); setEditId(null); }}
+                className="btn btn-large btn-futuristic"
+                tabIndex={0}
                 style={{
-                  backgroundColor: '#2EC4B6',
-                  color: '#fff',
-                  border: 'none',
-                  borderRadius: 24,
-                  fontWeight:600,
-                  boxShadow:'0 3px 16px rgba(52,136,180,0.12)',
-                  fontSize: '1.23rem',
-                  padding: '14px 44px',
-                  cursor: 'pointer',
-                  display:'inline-flex', alignItems:'center', gap:12,
-                  letterSpacing: 1
+                  fontWeight:900,
+                  letterSpacing:2,
+                  display:'inline-flex', alignItems:'center', gap:18,
+                  textShadow:'0 2px 7px #01e9ff58',
+                  borderRadius: '2.1rem',
                 }}>
-                  <span style={{transform:'rotate(10deg)'}}>{icons.wave}</span>
+                  <span style={{
+                    transform:'rotate(10deg)',display:'inline-block',filter:'drop-shadow(0 4px 16px #13e0ffc2)'
+                  }}>{icons.wave}</span>
                   + Log New Session
               </button>
             </div>
@@ -322,13 +350,23 @@ function SurfSyncApp() {
         )}
       </main>
 
-      {/* Oceanic BG effect (subtle SVG for depth) */}
-      <svg width="100%" height="70" style={{
-          position:'fixed', bottom:0, left:0, zIndex:-2
-        }} viewBox="0 0 1440 70" fill="none"
+      {/* Animated Oceanic SVG effect (deeper opacity) */}
+      <svg width="100%" height="100" style={{
+          position:'fixed', bottom:0, left:0, zIndex:3, pointerEvents:'none'
+        }} viewBox="0 0 1440 100" fill="none"
       >
-        <path d="M0,60 Q360,0 720,57 T1440,60 L1440,70 L0,70Z" fill="#3A8DAD" fillOpacity=".15"/>
-        <path d="M0,69 Q360,35 720,64 T1440,69 L1440,70 L0,70Z" fill="#2EC4B6" fillOpacity=".13"/>
+        <defs>
+          <linearGradient id="oceanWave1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#0f80d9" stopOpacity="0.16"/>
+            <stop offset="100%" stopColor="#41f2ff" stopOpacity="0.26"/>
+          </linearGradient>
+          <linearGradient id="oceanWave2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#1ff6f8" stopOpacity="0.21"/>
+            <stop offset="100%" stopColor="#2477c7" stopOpacity="0.14"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,87 Q380,20 720,93 T1440,87 L1440,100 L0,100Z" fill="url(#oceanWave1)"/>
+        <path d="M0,99 Q380,59 800,98 T1440,99 L1440,100 L0,100Z" fill="url(#oceanWave2)"/>
       </svg>
     </div>
   );
