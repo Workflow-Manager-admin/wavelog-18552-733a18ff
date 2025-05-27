@@ -321,53 +321,84 @@ function SurfSyncApp() {
         <div style={{position:'absolute',top:2,right:10,fontSize:12,opacity:.3,zIndex:888}}>
           <span>showForm: {String(showForm)} | showDashboard: {String(showDashboard)} | selectedSessionId: {String(selectedSessionId)} | editId: {String(editId)}</span>
         </div>
-        {/* Form: Add/Edit */}
-        {showForm && !showDashboard && (
-          <div className="section-bg-log" style={{borderRadius: '2.3rem', overflow:'hidden', position:'relative'}}>
-            <div className="section-overlay" />
-            <SessionForm
-              session={editId ? sessions.find(s=>s.id===editId) : undefined}
-              onSave={editId ? handleEditSession : handleAddSession}
-              onCancel={() => { setShowForm(false); setEditId(null); }}
-            />
+        {/* Defensive: detect impossible/ambiguous navigation state */}
+        {(Number(showForm) + Number(showDashboard) + Number(!!selectedSessionId)) > 1 && (
+          <div style={{
+            background: '#FF686B',
+            color: '#fff',
+            borderRadius: 10,
+            padding: '14px',
+            margin: '18px auto',
+            maxWidth: 440,
+            fontSize: '1.15rem',
+            fontWeight: 600,
+            textAlign:'center',
+            border: '2px solid #961414',
+            boxShadow: '0 3px 16px #90294185'
+          }}>
+            INTERNAL STATE ERROR: More than one major view is active simultaneously. This is a logic bug. Please refresh.<br/>
+            State: showForm={String(showForm)}, showDashboard={String(showDashboard)}, selectedSessionId={String(selectedSessionId)}
           </div>
+        )}
+        {/* Form: Add/Edit */}
+        {showForm && !showDashboard && !selectedSessionId && (
+          <>
+            {console.log("[Render] Show Form")}
+            <div className="section-bg-log" style={{borderRadius: '2.3rem', overflow:'hidden', position:'relative'}}>
+              <div className="section-overlay" />
+              <SessionForm
+                session={editId ? sessions.find(s=>s.id===editId) : undefined}
+                onSave={editId ? handleEditSession : handleAddSession}
+                onCancel={() => { setShowForm(false); setEditId(null); }}
+              />
+            </div>
+          </>
         )}
 
         {/* Dashboard */}
-        {showDashboard && (
-          <div className="section-bg-dashboard" style={{borderRadius: '2.3rem', overflow:'hidden', position:'relative'}}>
-            <div className="section-overlay" />
-            <StatsDashboard allSessions={sessions}/>
-          </div>
+        {showDashboard && !showForm && !selectedSessionId && (
+          <>
+            {console.log("[Render] Stats Dashboard")}
+            <div className="section-bg-dashboard" style={{borderRadius: '2.3rem', overflow:'hidden', position:'relative'}}>
+              <div className="section-overlay" />
+              <StatsDashboard allSessions={sessions}/>
+            </div>
+          </>
         )}
 
         {/* Session Detail */}
         {selectedSessionId && !showForm && !showDashboard &&
-          <div className="section-bg-details" style={{borderRadius: '2.3rem', overflow:'hidden', position:'relative'}}>
-            <div className="section-overlay" />
-            <SessionDetail
-              session={sessions.find(s=>s.id===selectedSessionId)}
-              onBack={()=>setSelectedSessionId(null)}
-              onEdit={()=>{setEditId(selectedSessionId); setShowForm(true);}}
-              onDelete={()=>handleDeleteSession(selectedSessionId)}
-            />
-          </div>
+          <>
+            {console.log("[Render] Session Detail")}
+            <div className="section-bg-details" style={{borderRadius: '2.3rem', overflow:'hidden', position:'relative'}}>
+              <div className="section-overlay" />
+              <SessionDetail
+                session={sessions.find(s=>s.id===selectedSessionId)}
+                onBack={()=>setSelectedSessionId(null)}
+                onEdit={()=>{setEditId(selectedSessionId); setShowForm(true);}}
+                onDelete={()=>handleDeleteSession(selectedSessionId)}
+              />
+            </div>
+          </>
         }
 
         {/* Home/Main List */}
         {!showForm && !selectedSessionId && !showDashboard && (
-          <div>
-            {/* Filter Bar */}
-            <SessionFilterBar filter={filter} setFilter={setFilter} sessions={sessions}/>
-            {/* Sessions List */}
-            <SessionList
-              sessions={filteredSessions()}
-              onSessionClicked={setSelectedSessionId}
-              onEdit={id => {setEditId(id); setShowForm(true);}}
-              onDelete={handleDeleteSession}
-              emptyText="No surf sessions found! Paddle out and start logging some stoke."
-            />
-          </div>
+          <>
+            {console.log("[Render] Home/List")}
+            <div>
+              {/* Filter Bar */}
+              <SessionFilterBar filter={filter} setFilter={setFilter} sessions={sessions}/>
+              {/* Sessions List */}
+              <SessionList
+                sessions={filteredSessions()}
+                onSessionClicked={setSelectedSessionId}
+                onEdit={id => {setEditId(id); setShowForm(true);}}
+                onDelete={handleDeleteSession}
+                emptyText="No surf sessions found! Paddle out and start logging some stoke."
+              />
+            </div>
+          </>
         )}
       </main>
 
