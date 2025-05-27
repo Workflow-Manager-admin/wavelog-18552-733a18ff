@@ -2,80 +2,18 @@
 > react-kavia@0.1.0 start
 > react-scripts start
 
-(node:784) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:1319) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-(node:784) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:1319) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 Starting the development server...
 
+Failed to compile.
+
+Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
+ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 5:36-83
+Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
+
+webpack compiled with 1 error
+Compiling...
 Compiled successfully!
-
-You can now view react-kavia in the browser.
-
-  Local:            http://localhost:3000
-  On Your Network:  http://172.17.0.2:3000
-
-Note that the development build is not optimized.
-To create a production build, use npm run build.
-
 webpack compiled successfully
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 5:36-83
-Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-
-ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 6:36-86
-Module not found: Error: Can't resolve '/assets/bg-details.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-
-ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 7:36-88
-Module not found: Error: Can't resolve '/assets/bg-dashboard.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-
-webpack compiled with 3 errors
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 5:36-83
-Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-
-ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 6:36-86
-Module not found: Error: Can't resolve '/assets/bg-details.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-
-ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 7:36-88
-Module not found: Error: Can't resolve '/assets/bg-dashboard.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-
-webpack compiled with 3 errors
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 5:36-83
-Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-
-ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 6:36-82
-Module not found: Error: Can't resolve '/assets/bg-log.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-
-ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 7:36-86
-Module not found: Error: Can't resolve '/assets/bg-details.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-
-ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 8:36-88
-Module not found: Error: Can't resolve '/assets/bg-dashboard.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-
-webpack compiled with 4 errors
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 5:36-83
-Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-
-webpack compiled with 1 error
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 5:36-83
-Module not found: Error: Can't resolve '/assets/bg-home.jpg' in '/home/kavia/workspace/code-generation/wavelog-18552-733a18ff/wave_log/src'
-
-webpack compiled with 1 error

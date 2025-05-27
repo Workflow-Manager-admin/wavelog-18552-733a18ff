@@ -85,7 +85,8 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 28px;
-  background-image: url('/assets/bg-home.jpg'), linear-gradient(110deg, #10154e 0%, #38b6ff 95%);
+  /* background-image: url('/assets/bg-home.jpg'), linear-gradient(110deg, #10154e 0%, #38b6ff 95%); */
+  background-image: linear-gradient(110deg, #10154e 0%, #38b6ff 95%);
   background-size: cover;
   background-blend-mode: overlay;
   color: var(--text-main);
