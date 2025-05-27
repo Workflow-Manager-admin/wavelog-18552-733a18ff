@@ -236,11 +236,18 @@ function SurfSyncApp() {
               {icons.home} Home
             </button>
             <button
-              onClick={()=>setShowDashboard(v=>!v)}
+              onClick={()=>setShowDashboard(true)}
               className={`btn btn-futuristic ${showDashboard ? "active-nav" : ""}`}
               tabIndex={0}
               style={navBtnStyle(showDashboard)}>
               {icons.stats} Stats
+            </button>
+            <button
+              onClick={() => { setShowForm(true); setEditId(null); setShowDashboard(false); setSelectedSessionId(null); }}
+              className={`btn btn-futuristic ${showForm ? "active-nav" : ""}`}
+              tabIndex={0}
+              style={navBtnStyle(showForm)}>
+              {icons.wave} Log New Session
             </button>
           </div>
         </div>
@@ -318,25 +325,6 @@ function SurfSyncApp() {
         {/* Home/Main List */}
         {!showForm && !selectedSessionId && !showDashboard && (
           <div>
-            {/* "Log New Session" button */}
-            <div style={{textAlign:'center',marginTop:30,marginBottom:33}}>
-              <button
-                onClick={() => { setShowForm(true); setEditId(null); }}
-                className="btn btn-large btn-futuristic"
-                tabIndex={0}
-                style={{
-                  fontWeight:900,
-                  letterSpacing:2,
-                  display:'inline-flex', alignItems:'center', gap:18,
-                  textShadow:'0 2px 7px #01e9ff58',
-                  borderRadius: '2.1rem',
-                }}>
-                  <span style={{
-                    transform:'rotate(10deg)',display:'inline-block',filter:'drop-shadow(0 4px 16px #13e0ffc2)'
-                  }}>{icons.wave}</span>
-                  + Log New Session
-              </button>
-            </div>
             {/* Filter Bar */}
             <SessionFilterBar filter={filter} setFilter={setFilter} sessions={sessions}/>
             {/* Sessions List */}
